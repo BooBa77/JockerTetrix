@@ -1,0 +1,14 @@
+*.meta
+Library/
+Logs/
+Packages/
+ProjectSettings/
+Temp/
+UserSettings/
+*.tmp
+# игнорирует файлы конфигурации
+*.userprefs
+*.csproj
+*.sln
+# игнорирует файлы журналов
+*.log
