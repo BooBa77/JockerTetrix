@@ -4306,10 +4306,10 @@ MonoBehaviour:
   sound_background: {fileID: 82705932}
   sound_victory: {fileID: 1178169791}
   sound_defeat: {fileID: 786270579}
-  textLabel: {fileID: 1965808024}
   level00_anime: {fileID: 5486251773714935157, guid: 51df7e9f7fa3ce14d8cd8f815bb8b96d, type: 3}
   level01_anime: {fileID: 5518533388003007256, guid: d4f23aa33610ef54d8fb5bab7db322ba, type: 3}
   level02_anime: {fileID: 8655917736194512483, guid: 9f89e2b96d983f340a72da1da2a8fc25, type: 3}
+  levelGandalf_anime: {fileID: 4075784919086036733, guid: ca4550688b290d647a3fb21a8922f748, type: 3}
   levelFinal_anime: {fileID: 2323893170440854648, guid: 039f2b01bf241214f9df29b8dd6460fa, type: 3}
 --- !u!1 &1782540968
 GameObject:

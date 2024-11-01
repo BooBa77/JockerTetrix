@@ -136,11 +136,11 @@ public class Main : MonoBehaviour
         // Нажатие кнопок 
         if (Input.GetKeyDown(KeyCode.A)) { N_shape = 0; MoveAside(-1); } // Двигать фигуру влево
         if (Input.GetKeyDown(KeyCode.D)) { N_shape = 0; MoveAside(1); } // Двигать фигуру вправо
-        if (Input.GetKeyDown(KeyCode.S)) { shape[0].drop_shape = true; } // Сброс фигуры вниз
+        if (Input.GetKeyDown(KeyCode.S) && shape[0].blocks_count < 16) { shape[0].drop_shape = true; } // Сброс фигуры вниз
         if (Input.GetKeyDown(KeyCode.W) && shape[0].can_rotate) { N_shape = 0; RotateShape(); } // Вращение фигуры по часовой
         if (Input.GetKeyDown(KeyCode.LeftArrow)) { N_shape = 1; MoveAside(-1); } // Двигать фигуру влево
         if (Input.GetKeyDown(KeyCode.RightArrow)) { N_shape = 1; MoveAside(1); } // Двигать фигуру вправо
-        if (Input.GetKeyDown(KeyCode.DownArrow)) { shape[1].drop_shape = true; } // Сброс фигуры вниз
+        if (Input.GetKeyDown(KeyCode.DownArrow) && shape[1].blocks_count < 16) { shape[1].drop_shape = true; } // Сброс фигуры вниз
         if (Input.GetKeyDown(KeyCode.UpArrow) && shape[1].can_rotate) { N_shape = 1; RotateShape(); } // Вращение фигуры по часовой
 
         // Движение фигур по таймерам
@@ -155,11 +155,11 @@ public class Main : MonoBehaviour
     public void LeftLeftButton_press() { if (!stop_game) { N_shape = 0; MoveAside(-1); } } // Двигать левую фигуру влево
     public void LeftRightButton_press() { if (!stop_game) { N_shape = 0; MoveAside(1); } } // Двигать левую фигуру вправо
     public void LeftUpButton_press() { if (!stop_game && shape[0].can_rotate) { N_shape = 0; RotateShape(); } } // Вращение левой фигуры по часовой
-    public void LeftDownButton_press() { if (!stop_game) { shape[0].drop_shape = true; } } // Сброс левой фигуры
+    public void LeftDownButton_press() { if (!stop_game && shape[0].blocks_count < 16) { shape[0].drop_shape = true; } } // Сброс левой фигуры
     public void RightLeftButton_press() { if (!stop_game) { N_shape = 1; MoveAside(-1); } } // Двигать правую фигуру влево
     public void RightRightButton_press() { if (!stop_game) { N_shape = 1; MoveAside(1); } } // Двигать правую фигуру вправо
     public void RightUpButton_press() { if (!stop_game && shape[1].can_rotate) { N_shape = 1; RotateShape(); } } // Вращение правой фигуры по часовой
-    public void RightDownButton_press() { if (!stop_game) { shape[1].drop_shape = true; } } // Сброс правой фигуры
+    public void RightDownButton_press() { if (!stop_game && shape[1].blocks_count < 16) { shape[1].drop_shape = true; } } // Сброс правой фигуры
 
     private void MoveAside(int delta) // Движение фигуры в сторону. delta - смещение, если -1 это влево, если 1 то вправо
     {
@@ -967,7 +967,7 @@ public class Main : MonoBehaviour
     {
         shape[N_shape].blocks_count = 24;
         SetShapeDefaultValues();
-        shape[N_shape].x = 10.5f; shape[N_shape].y = 25.5f;
+        shape[N_shape].x = 10.5f; shape[N_shape].y = 30.5f;
         shape[N_shape].block_pos = new float[,] { { -1.5f, -1.5f }, { -1.5f, -0.5f }, { -0.5f, -0.5f }, { -0.5f, -1.5f },
                     { -1.5f, 0.5f }, { -1.5f, 1.5f }, { -0.5f, 1.5f }, { -0.5f, 0.5f },
                     { 0.5f, 0.5f }, { 0.5f, 1.5f }, { 1.5f, 1.5f }, { 1.5f, 0.5f },

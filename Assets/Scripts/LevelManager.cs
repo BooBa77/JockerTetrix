@@ -22,12 +22,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] AudioSource sound_victory; // Победа
     [SerializeField] AudioSource sound_defeat; // Поражение
 
-    [SerializeField] Text textLabel; // Текстовый блок для вывода информации об уровне
-    private float fadeDuration = 3f; // Длительность эффекта исчезновения текста
     // Джокеры
     [SerializeField] GameObject level00_anime; // Префаб с анимацией 0-го уровня
     [SerializeField] GameObject level01_anime; // Префаб с анимацией 1-го уровня
     [SerializeField] GameObject level02_anime; // Префаб с анимацией 2-го уровня
+    [SerializeField] GameObject levelGandalf_anime; // Префаб с анимацией Гулливер уровней
     [SerializeField] GameObject levelFinal_anime; // Префаб с анимацией финального уровня
 
 
@@ -37,22 +36,67 @@ public class LevelManager : MonoBehaviour
         switch (level)
         {
             case 0:
-                //shapes_count = 0; level++; SetNewShape(); return;
+                shapes_count = 0; level++; SetNewShape(); return;
                 level_00(); break;
             case 1: // Бетон
-                //shapes_count = 0; level++; SetNewShape(); return;
+                shapes_count = 0; level++; SetNewShape(); return;
                 level_01();  break;
             case 2: // Бомба
-                //shapes_count = 0; level++; SetNewShape(); return;
+                shapes_count = 0; level++; SetNewShape(); return;
                 level_02();  break;
             case 3: // Алмазик
                 //shapes_count = 0; level++; SetNewShape(); return;
                 level_03();  break;
-            case 4: // Гуливер
+            case 4:
                 //shapes_count = 0; level++; SetNewShape(); return;
-                level_04();  break;
-            case 5: // Победный алмаз
-                level_05();  break;
+                level_04(); break;
+            case 5:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_05(); break;
+            case 6:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_06(); break;
+            case 7:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_07(); break;
+            case 8:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_08(); break;
+            case 9:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_09(); break;
+            case 10:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_10(); break;
+            case 11:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_11(); break;
+            case 12:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_12(); break;
+            case 13:
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_13(); break;
+            case 14: // Гуливер - 1
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_14(); break;
+            case 15: // Гуливер - 2
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_15(); break;
+            case 16: // Гуливер - 3
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_16(); break;
+            case 17: // Гуливер - 4
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_17(); break;
+            case 18: // Гуливер - 5
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_18(); break;
+            case 19: // Гуливер - 6
+                //shapes_count = 0; level++; SetNewShape(); return;
+                level_19();  break;
+            case 20: // Победный алмаз
+                level_20();  break;
         }
         if (!Main.stop_game && main.N_shape != -1) { main.RenderNewShape(); }
     }
@@ -100,27 +144,90 @@ public class LevelManager : MonoBehaviour
         }
         level_progress = (20f - FindObjectInSpace("diamond")) / 20f;
     }
-    private void level_04() // Гулливер
+    private void level_04() //1
     {
-        if (shapes_count == 0) { main.MakeClassicShape2x2(3); }
-        else if (shapes_count < 50) { main.MakeNewClassicShape(); }
-        else if (shapes_count == 50) { main.MakeClassicShape2x2(2); }
-        else if (shapes_count < 100) { ChooseRandomShape(); }
-        else if (shapes_count == 100) { main.MakeClassicShape2x2(4); }
-        else if (shapes_count < 150) { ChooseRandomShape(); }
-        else if (shapes_count == 150) { main.MakeClassicShape2x2(5); }
-        else if (shapes_count < 200) { ChooseRandomShape(); }
-        else if (shapes_count == 200) { main.MakeClassicShape2x2(1); }
-        else if (shapes_count < 250) { ChooseRandomShape(); }
-        else if (shapes_count == 250) { main.MakeClassicShape2x2(6); }
-        else if (shapes_count == 298) {Instantiate(levelFinal_anime); }  // Запуск анимации Горлума
-        else if (shapes_count < 300) { ChooseRandomShape(); }
-        //else if (shapes_count == 300) { main.MakeClassicShape2x2(0); }
-        //else if (shapes_count < 350) { ChooseRandomShape(); }
-        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
-        level_progress = shapes_count / 350f;
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
     }
-    private void level_05() // Победный алмаз
+    private void level_05() //2
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_06() //3
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_07() //4
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_08() //5
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_09() //6
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_10() //7
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_11() //8
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_12() //9
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_13() //10
+    {
+        level++; shapes_count = 0; level_progress = 0; SetNewShape(); return;
+    }
+    private void level_14() // Гулливер - 1
+    {
+        if (shapes_count == 0) { Instantiate(levelGandalf_anime); main.MakeClassicShape2x2(3); }
+        else if (shapes_count < 50) { main.MakeNewClassicShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+
+    private void level_15() // Гулливер - 2
+    {
+        if (shapes_count == 0) { main.MakeClassicShape2x2(2); }
+        else if (shapes_count < 50) { ChooseRandomShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+    private void level_16() // Гулливер - 3
+    {
+        if (shapes_count == 0) { main.MakeClassicShape2x2(4); }
+        else if (shapes_count < 50) { ChooseRandomShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+    private void level_17() // Гулливер - 4
+    {
+        if (shapes_count == 0) { main.MakeClassicShape2x2(5); }
+        else if (shapes_count < 50) { ChooseRandomShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+    private void level_18() // Гулливер - 5
+    {
+        if (shapes_count == 0) { main.MakeClassicShape2x2(1); }
+        else if (shapes_count < 50) { ChooseRandomShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+    private void level_19() // Гулливер - 6
+    {
+        if (shapes_count == 0) { main.MakeClassicShape2x2(6); }
+        else if (shapes_count < 50) { ChooseRandomShape(); }
+        else { level++; shapes_count = 0; level_progress = 0; SetNewShape(); return; }
+        level_progress = shapes_count / 50f;
+    }
+    private void level_20() // Победный алмаз
     {
         if (shapes_count == 0)
         {
@@ -147,9 +254,15 @@ public class LevelManager : MonoBehaviour
             case 3:
                 possible_shapes = new Dictionary<string, int>() { { "Classic", 100 }, { "Beton", 50 } };
                 break;
-            case 4:
-            case 5:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
                 possible_shapes = new Dictionary<string, int>() { { "Classic", 100 }, { "Beton", 20 }, { "BoxBombBlack", 5 } };
+                break;
+            case 20:
+                possible_shapes = new Dictionary<string, int>() { { "Classic", 100 }, { "Beton", 20 }, { "BoxBombBlack", 3 } };
                 break;
         }
         int totalWeight = possible_shapes.Values.Sum();
