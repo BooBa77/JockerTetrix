@@ -16,7 +16,8 @@ public struct TetrixShape // Структура для значений опускающейся фигуры
 }
 public class Main : MonoBehaviour
 {
-    public LevelManager levelManager; // ссылка на скрипт, управления уровнями игры
+    [SerializeField] LevelManager levelManager; // ссылка на скрипт, управления уровнями игры
+    [SerializeField] BonusManager bonusManager; // ссылка на скрипт, управления бонусами
 
     public static bool stop_game = true; // Остановить ли движение фигур? Пауза и стоп-игра
 
@@ -530,6 +531,9 @@ public class Main : MonoBehaviour
             default: // Разрушаемые блоки освобождаем
                 space_cells_status[x, y] = "";
                 space_cells_sprite[x, y].GetComponent<SpriteRenderer>().sprite = sprite_background; // Пустой спрайт
+                if ((bonusManager.projectorLeftPosition.x == x && bonusManager.projectorLeftPosition.y == y) // Проверка, есть ли знак вызова Бэтмэна в удаляемой ячейке
+                    || (bonusManager.projectorRightPosition.x == x && bonusManager.projectorRightPosition.y == y))
+                    { bonusManager.TakeBonus(new Vector2(x, y), N_shape); } // Бонус в ячейке получен
                 break;
         }
         if (shift) { ShiftColumn(x, y); } // Если в аргументах задано, но сдвигаем колонку на место уничтоженной ячейки
@@ -566,6 +570,9 @@ public class Main : MonoBehaviour
                 space_cells_status[target_x, y] = space_cells_status[target_x, y + 1]; // Статус ячейки присваевается от ячейки сверху
                 space_cells_sprite[target_x, y].GetComponent<SpriteRenderer>().sprite = space_cells_sprite[target_x, y + 1].GetComponent<SpriteRenderer>().sprite; // То же со спрайтом ячейки
                 space_cells_status[target_x, y + 1] = ""; // Статус ячейки сверху нужно обнулять
+                if ((bonusManager.projectorLeftPosition.x == target_x && bonusManager.projectorLeftPosition.y == y + 1) // Проверка, есть ли знак вызова Бэтмэна в смещаемой ячейке
+                    || (bonusManager.projectorRightPosition.x == target_x && bonusManager.projectorRightPosition.y == y + 1)) 
+                { bonusManager.ReplaceSign(new Vector2(target_x, y + 1), new Vector2 (target_x, y) ); } // Перенос знака вызова Бэтмэна
             }
             y++;
         }

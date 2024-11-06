@@ -7,6 +7,7 @@ using System.Linq;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] Main main; // Ссылка на основной скрипт игры
+    [SerializeField] BonusManager bonusManager; // Ссылка на управляющего бонусами
     public int level = 0; // Текущий уровень игры
     private int levels_count; // Количество уровней в игре
     public float level_progress; // Прогресс прохождения текущего уровня
@@ -321,7 +322,6 @@ public class LevelManager : MonoBehaviour
         main.RenderNewShape();
         Instantiate(level00_anime); // Запуск 00-й анимации с космонавтом
     }
-
     public void GameOver()
     {
         sound_background.Stop();
@@ -332,7 +332,7 @@ public class LevelManager : MonoBehaviour
         else { Result.text = ((level - 1 + level_progress) / levels_count * 100f).ToString("F2") + " %"; } // Вывод достугнутого результата 
         Main.stop_game = true; // Останавливаем движение фигур
     }
-    public void Win()
+    private void Win()
     {
         sound_background.Stop();
         sound_victory.Play();
@@ -340,4 +340,5 @@ public class LevelManager : MonoBehaviour
         victoryWindow.SetActive(true); // Отображаем канву победы
         Main.stop_game = true; // Останавливаем движение фигур
     }
+
 }
